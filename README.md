@@ -1,2 +1,5 @@
-# Betar-website
-Website for the Betar-Penza organization
+# Betar website
+
+Интерактивный прототип первого экрана сайта оптового поставщика счётчиков БЕТАР.
+
+Публикация выполняется автоматически через GitHub Pages из каталога `dist`.

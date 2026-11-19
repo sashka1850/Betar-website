@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Счётчики БЕТАР оптом</title>
+  <meta name="description" content="Бытовые и промышленные счётчики воды, газа и электроэнергии БЕТАР для организаций.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23082752'/%3E%3Ctext x='8' y='30' font-size='29' font-weight='bold' font-family='Arial' fill='white'%3EБ%3C/text%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="./assets/studio.webp">
+  <link rel="stylesheet" href="./studio.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M13 4l8 8-8 8"/></symbol>
+  <symbol id="chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="water" viewBox="0 0 32 38"><path d="M16 2C13 8 4 20 4 25a12 12 0 0 0 24 0C28 19 19 6 16 2Z"/></symbol>
+  <symbol id="gas" viewBox="0 0 32 38"><path d="M17 2c2 7 2 11-2 16-1-3-4-6-5-8 1 7-7 11-7 18 0 5 5 8 10 9-5-8 1-11 4-16 0 5 8 9 4 15 6-2 9-7 8-13-1-7-6-15-12-21Z"/></symbol>
+  <symbol id="electric" viewBox="0 0 32 38"><path d="M22 1 3 23h12l-4 14 18-23H17z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="1.6"/><path d="m3 6 9 7 9-7"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M6.3 2.6 9 6.8c.4.7.4 1.1-.2 1.7l-1.5 1.6c1.5 3 3.8 5.1 6.7 6.6l1.6-1.6c.6-.5 1.1-.5 1.7-.2l4 2.6c.7.5.8 1.1.4 1.8-.9 1.8-2.3 2.8-4.5 2.4C10.2 20.4 3.5 13.4 2.3 6.7 1.9 4.4 3 3 4.7 2.3c.6-.3 1.2-.2 1.6.3Z"/></symbol>
+</svg>
+<div class="page">
+ <header class="masthead">
+  <a class="brand" href="#overview" data-all aria-label="БЕТАР — все счётчики"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
+  <nav class="desktop-nav" aria-label="Основное меню">
+   <div class="catalog"><button class="navlink" data-menu="catalog-list" aria-expanded="false" aria-controls="catalog-list">Каталог <svg class="small"><use href="#chevron"/></svg></button>
+    <div class="popover" id="catalog-list" hidden><button data-type="water">Счётчики воды</button><button data-type="gas">Счётчики газа</button><button data-type="electric">Счётчики электроэнергии</button><button data-all>Все счётчики</button></div>
+   </div>
+   <button class="navlink" data-info="terms">Условия</button><button class="navlink" data-info="about">О компании</button><button class="navlink" data-info="contact">Контакты</button>
+  </nav>
+  <div class="header-actions">
+   <button class="phone" data-info="contact" aria-label="Контакты отдела продаж"><svg><use href="#phone"/></svg><span><strong>+7 (800) 555-29-80</strong><small>Бесплатно по России</small></span></button>
+   <button class="header-quote" data-quote><svg><use href="#mail"/></svg>Запрос на опт</button>
+   <button class="burger" data-menu="mobile-list" aria-controls="mobile-list" aria-expanded="false" aria-label="Меню"><svg><use href="#menu"/></svg></button>
+  </div>
+  <nav class="popover mobile-pop" id="mobile-list" aria-label="Навигация" hidden><button data-all>Все счётчики</button><button data-type="water">Счётчики воды</button><button data-type="gas">Счётчики газа</button><button data-type="electric">Счётчики электроэнергии</button><button data-info="terms">Условия</button><button data-info="about">О компании</button><button data-info="contact">Контакты</button></nav>
+ </header>
+ <main class="hero" id="overview" aria-labelledby="title">
+  <div id="scene" class="scene" aria-hidden="true">
+   <img id="plate" alt="" src="./assets/studio.webp" width="1753" height="697" draggable="false">
+   <div class="actor" id="actor-electric"><span></span><img src="./assets/electric.webp" alt=""><canvas></canvas></div>
+   <div class="actor" id="actor-water"><span></span><img src="./assets/water.webp" alt=""><canvas></canvas></div>
+   <div class="actor" id="actor-gas"><span></span><img src="./assets/gas.webp" alt=""><canvas></canvas></div>
+  </div>
+  <div class="copy-zone"><div class="copy-inner">
+    <div id="copy" aria-live="polite" aria-atomic="true"><h1 id="title">Счётчики БЕТАР<br>оптом</h1><p id="description">Бытовые и промышленные<br>приборы учёта для организаций</p></div>
+    <div class="actions"><button class="primary" data-quote>Запросить предложение <svg><use href="#arrow"/></svg></button><button class="back" id="back" data-all hidden>← Все счётчики</button></div>
+  </div></div>
+ </main>
+ <nav class="categories" aria-label="Выбор типа счётчика">
+  <button class="category" data-type="water" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#water"/></svg><span>Вода</span><svg class="end"><use href="#arrow"/></svg></button>
+  <button class="category" data-type="gas" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#gas"/></svg><span>Газ</span><svg class="end"><use href="#arrow"/></svg></button>
+  <button class="category" data-type="electric" aria-label="Электроэнергия" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#electric"/></svg><span>Электро&shy;энергия</span><svg class="end"><use href="#arrow"/></svg></button>
+ </nav>
+</div>
+<dialog id="info" aria-labelledby="info-heading"><div class="dialog-heading"><h2 id="info-heading"></h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p id="info-body"></p><button class="primary" data-quote>Подготовить запрос</button></dialog>
+<dialog id="quote" aria-labelledby="quote-heading"><div class="dialog-heading"><h2 id="quote-heading">Запрос на опт</h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p>Подготовьте текст запроса для отдела продаж.</p><label for="draft">Текст запроса</label><textarea id="draft" rows="5"></textarea><button class="primary" id="copy-draft">Скопировать запрос</button><p id="status" role="status"></p></dialog>
+</body>
+</html>
