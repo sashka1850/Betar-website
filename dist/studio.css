@@ -99,3 +99,8 @@ dialog .primary{margin-top:15px;min-height:44px;font-size:16px;padding:0 17px;bo
 .scene{isolation:isolate}
 .podium{position:absolute;left:var(--foot-x);top:var(--foot-y);width:var(--diameter);height:calc(var(--rim) + var(--depth));transform:translate(-50%,calc(var(--depth) * -.5));border-radius:50% / calc(var(--depth) / 2);background:linear-gradient(90deg,#262b60,#404578 17%,#23264c 50%,#15172e 91%,#303358);box-shadow:16px 8px 15px -8px rgba(13,16,39,.45)}
 .podium::before{content:"";display:block;height:var(--depth);border-radius:50%;background:linear-gradient(105deg,#363b74,#575c98 65%,#404679)}
+
+
+.range-link{pointer-events:auto;text-decoration:none}
+#price-dialog input{display:block;width:100%;padding:12px;border:1px solid #a7b5c7;border-radius:6px;font:inherit}
+#price-dialog label{display:block;margin:14px 0 5px}

@@ -9,7 +9,7 @@
   <link rel="preload" as="image" href="./assets/studio.webp">
   <link rel="stylesheet" href="./studio.css">
   <script type="module" src="./app.js"></script>
-<style>.household-link{display:none;pointer-events:auto}.page:has(.category[data-type="water"][aria-pressed="true"]) .household-link{display:inline-flex;align-items:center;background:#082752;color:white;padding:12px 16px;border-radius:6px;text-decoration:none;font-weight:600}.page:has(.category[data-type="water"][aria-pressed="true"]) .actions>[data-quote]{display:none}</style></head>
+</head>
 <body>
 <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M13 4l8 8-8 8"/></symbol>
@@ -47,7 +47,7 @@
   </div>
   <div class="copy-zone"><div class="copy-inner">
     <div id="copy" aria-live="polite" aria-atomic="true"><h1 id="title">Счётчики БЕТАР<br>оптом</h1><p id="description">Бытовые и промышленные<br>приборы учёта для организаций</p></div>
-    <div class="actions"><a class="household-link" href="./water.html">Бытовые счётчики →</a><button class="primary" data-quote>Запросить предложение <svg><use href="#arrow"/></svg></button><button class="back" id="back" data-all hidden>← Все счётчики</button></div>
+    <div class="actions"><button class="primary" id="price-open">Получить прайс <svg><use href="#arrow"/></svg></button><a class="primary range-link" id="range-link" href="./catalog.html" hidden>Посмотреть ассортимент <svg><use href="#arrow"/></svg></a><button class="back" id="back" data-all hidden>← Все счётчики</button></div>
   </div></div>
  </main>
  <nav class="categories" aria-label="Выбор типа счётчика">
@@ -56,7 +56,16 @@
   <button class="category" data-type="electric" aria-label="Электроэнергия" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#electric"/></svg><span>Электро&shy;энергия</span><svg class="end"><use href="#arrow"/></svg></button>
  </nav>
 </div>
+<dialog id="price-dialog" aria-labelledby="price-title">
+  <div class="dialog-heading"><h2 id="price-title">Получить оптовый прайс</h2><button type="button" id="price-close" aria-label="Закрыть">×</button></div>
+  <form id="price-form" data-endpoint="">
+    <label for="price-email">Email</label><input id="price-email" name="email" autocomplete="email" type="email" maxlength="254" required>
+    <label for="price-city">Город</label><input id="price-city" name="city" autocomplete="address-level2" maxlength="100" required>
+    <button class="primary" type="submit">Получить прайс</button><p id="price-status" role="status"></p>
+  </form>
+</dialog>
 <dialog id="info" aria-labelledby="info-heading"><div class="dialog-heading"><h2 id="info-heading"></h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p id="info-body"></p><button class="primary" data-quote>Подготовить запрос</button></dialog>
 <dialog id="quote" aria-labelledby="quote-heading"><div class="dialog-heading"><h2 id="quote-heading">Запрос на опт</h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p>Подготовьте текст запроса для отдела продаж.</p><label for="draft">Текст запроса</label><textarea id="draft" rows="5"></textarea><button class="primary" id="copy-draft">Скопировать запрос</button><p id="status" role="status"></p></dialog>
 <script>window.addEventListener('DOMContentLoaded',()=>{if(new URLSearchParams(location.search).get('category')==='water')document.querySelector('.category[data-type="water"]').click()})</script></body>
 </html>
+
