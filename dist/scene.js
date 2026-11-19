@@ -19,6 +19,7 @@ export function createStudio(){
     const crop=compact.matches?515:0,sx=width/(1753-crop),sy=height/697;
     const size=Math.min(sx*1.075,sy*1.08,Math.sqrt(sx*sy));
     metrics={width,crop,sx,sy,size};
+    plate.style.objectPosition="left";
     plate.style.width=(1753*sx)+"px";plate.style.left=(-crop*sx)+"px";schedule();
   }
   function load(url,onReady){
@@ -35,6 +36,15 @@ export function createStudio(){
     el.style.width=width+"px";el.style.height=height+"px";
     el.style.setProperty("--foot-y",anchor[1]+"px");el.style.setProperty("--shadow",(id==="water"?134:width*.72)+"px");
     const model={id,asset,el,ctx,base,width,height,anchor,last:""};
+    const podium=document.createElement("div");
+    podium.className="podium";
+    const [diameter,depth,rim]={
+      water:[442,47,110],gas:[546,65,45],electric:[504,43,150]
+    }[id];
+    podium.style.setProperty("--diameter",diameter+"px");
+    podium.style.setProperty("--depth",depth+"px");
+    podium.style.setProperty("--rim",rim+"px");
+    el.prepend(podium);
     models[id]=model;base.addEventListener("load",schedule);
     if(asset.selected){
       load(asset.selected.sheet,image=>{model.sheet=image;model.last=""});
@@ -68,6 +78,7 @@ export function createStudio(){
       const left=(x-crop)*sx-footX*size,top=y*sy-m.anchor[1]*size;
       const r=readingAt(id,Math.max(0,now-started),reduce.matches);
       m.el.dataset.reading=r.value;
+      m.el.style.zIndex=String(Math.round(y));
       m.el.style.setProperty("--foot-x",footX+"px");
       m.el.style.transform=`translate3d(${left}px,${top}px,0) scale(${size})`;
       m.el.hidden=a.hidden||left+m.width*size < -2||left > width+2;
@@ -78,7 +89,6 @@ export function createStudio(){
   }
   function select(id){
     motion.select(id,performance.now(),reduce.matches);
-    for(const [key,m] of Object.entries(models))m.el.style.zIndex=key===id?3:key==="gas"?2:1;
     schedule();
   }
   new ResizeObserver(measure).observe(scene);

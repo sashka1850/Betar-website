@@ -92,3 +92,10 @@ dialog .primary{margin-top:15px;min-height:44px;font-size:16px;padding:0 17px;bo
 @media(max-width:370px){.brand span{display:none}.copy-zone{min-height:358px}}
 @media(min-width:741px) and (max-height:580px){.hero{min-height:max(294px,29vw)}.masthead{height:56px}.categories{padding-top:10px;padding-bottom:10px}.category{height:54px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Use the unobstructed left floor as the studio backdrop below the lights. */
+.scene::before{content:"";position:absolute;inset:0;z-index:0;background-image:url("./assets/studio.webp");background-size:330% 100%;background-position:left;mask-image:linear-gradient(transparent 48%,black 62%)}
+#plate{z-index:-1}
+.scene{isolation:isolate}
+.podium{position:absolute;left:var(--foot-x);top:var(--foot-y);width:var(--diameter);height:calc(var(--rim) + var(--depth));transform:translate(-50%,calc(var(--depth) * -.5));border-radius:50% / calc(var(--depth) / 2);background:linear-gradient(90deg,#262b60,#404578 17%,#23264c 50%,#15172e 91%,#303358);box-shadow:16px 8px 15px -8px rgba(13,16,39,.45)}
+.podium::before{content:"";display:block;height:var(--depth);border-radius:50%;background:linear-gradient(105deg,#363b74,#575c98 65%,#404679)}

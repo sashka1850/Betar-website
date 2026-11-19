@@ -6,7 +6,7 @@ export const home = {
 };
 const layouts = {
   overview: {water:"water",gas:"gas",electric:"electric"},
-  water: {water:"gas",gas:"right",electric:"right"},
+  water: {water:"electric",gas:"right",electric:"right"},
   electric: {water:"left",gas:"left",electric:"electric"},
   gas: {water:"left",gas:"electric",electric:"right"}
 };
