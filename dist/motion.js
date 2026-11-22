@@ -25,7 +25,7 @@ export class StudioMotion {
     for (const [key,actor] of Object.entries(this.actors)){
       const slot=layouts[id][key], exiting=Object.hasOwn(exits,slot);
       const start={...actor.position};
-      const end=exiting ? {...start,x:exits[slot]} : {...home[slot],turn:key===id&&key!=="electric"?1:0};
+      const end=exiting ? {...start,x:exits[slot],turn:key==="gas"?0:start.turn} : {...home[slot],turn:key===id&&key!=="electric"?1:0};
       const parked=exiting&&(actor.hidden||start.x < -360||start.x > 2120);
       const same=start.x===end.x&&start.y===end.y&&start.turn===end.turn;
       if(reduce||parked||same){

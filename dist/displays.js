@@ -1,6 +1,6 @@
 const clocks={
   water:{start:12345,period:1120,count:9,places:3},
-  gas:{start:632,period:1480,count:9,places:3},
+  gas:{start:23,period:1480,count:4,places:3},
   electric:{start:4632,period:1850,count:8,places:2}
 };
 export function readingAt(id,elapsed,reduce){

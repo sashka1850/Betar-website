@@ -1,6 +1,7 @@
 import {art} from './art.js';
 import {home,StudioMotion} from './motion.js';
 import {readingAt,drawReading} from './displays.js';
+import {createWaterDial} from './turn.js';
 
 export function createStudio(){
   const scene=document.querySelector("#scene"),plate=document.querySelector("#plate");
@@ -47,7 +48,10 @@ export function createStudio(){
     el.prepend(podium);
     models[id]=model;base.addEventListener("load",schedule);
     if(asset.selected){
-      load(asset.selected.sheet,image=>{model.sheet=image;model.last=""});
+      if(asset.selected.sheet)load(asset.selected.sheet,image=>{
+        model.sheet=image;model.last="";
+        if(id==="water")model.paintDial=createWaterDial(image,asset);
+      });
       load(asset.selected.file,image=>{model.end=image;model.last=""});
     }
   }
@@ -59,14 +63,20 @@ export function createStudio(){
     if(key===m.last)return;
     m.last=key;ctx.clearRect(0,0,width,height);
     let quad=asset.digitQuad;
-    if(frame&&m.sheet){
+    if(m.sheet&&(frame||m.paintDial)){
       const col=frame%alt.columns,row=Math.floor(frame/alt.columns);
       ctx.drawImage(m.sheet,col*width,row*height,width,height,0,0,width,height);
-      quad=alt.frames[frame];
-    }else if(frame>8&&m.end){
+      quad=alt.frames?.[frame]??asset.digitQuad.map(([x,y],i)=>{
+        const end=alt.digitQuad[i];
+        const progress=frame/(alt.count-1);
+        return [x+(end[0]-x)*progress,y+(end[1]-y)*progress];
+      });
+    }else if(m.end&&frame>Math.floor((alt.count-1)/2)){
       ctx.drawImage(m.end,0,0,width,height);quad=alt.digitQuad;
     }else ctx.drawImage(m.base,0,0,width,height);
-    drawReading(ctx,m.id,quad,r);m.el.classList.add("painted");
+    if(m.paintDial)m.paintDial(ctx,frame,r);
+    else if(quad)drawReading(ctx,m.id,quad,r);
+    m.el.classList.add("painted");
   }
   function draw(now){
     raf=0;if(!metrics||document.hidden)return;
