@@ -13,7 +13,6 @@
 </head>
 <body>
 <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M13 4l8 8-8 8"/></symbol>
   <symbol id="chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   <symbol id="water" viewBox="0 0 32 38"><path d="M16 2C13 8 4 20 4 25a12 12 0 0 0 24 0C28 19 19 6 16 2Z"/></symbol>
   <symbol id="gas" viewBox="0 0 32 38"><path d="M17 2c2 7 2 11-2 16-1-3-4-6-5-8 1 7-7 11-7 18 0 5 5 8 10 9-5-8 1-11 4-16 0 5 8 9 4 15 6-2 9-7 8-13-1-7-6-15-12-21Z"/></symbol>
@@ -25,6 +24,7 @@
 <symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="1.6"/><path d="m3 6 9 7 9-7"/></symbol>
 <symbol id="menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
 <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M13 4l8 8-8 8"/></symbol>
 </svg>
 <!-- /shared:header-icons -->
 <!-- shared:header -->
@@ -61,7 +61,7 @@
   </div>
   <div class="copy-zone"><div class="copy-inner">
     <div id="copy" aria-live="polite" aria-atomic="true"><h1 id="title">Счётчики БЕТАР<br>оптом</h1><p id="description">Бытовые и промышленные<br>приборы учёта для организаций</p></div>
-    <div class="actions"><button class="primary" id="price-open">Получить прайс <svg><use href="#arrow"/></svg></button><a class="primary range-link" id="range-link" href="./catalog.html" hidden>Посмотреть ассортимент <svg><use href="#arrow"/></svg></a><button class="back" id="back" data-all hidden>← Все счётчики</button></div>
+    <div class="actions"><button class="primary" id="price-open" data-price-open>Получить прайс <svg><use href="#arrow"/></svg></button><a class="primary range-link" id="range-link" href="./catalog.html" hidden>Посмотреть ассортимент <svg><use href="#arrow"/></svg></a><button class="back" id="back" data-all hidden>← Все счётчики</button></div>
   </div></div>
  </main>
  <nav class="categories" aria-label="Выбор типа счётчика">
@@ -166,6 +166,7 @@
   </div>
  </div>
 </section>
+<!-- shared:price-dialog -->
 <dialog id="price-dialog" aria-labelledby="price-title">
   <div class="dialog-heading"><h2 id="price-title">Получить оптовый прайс</h2><button type="button" id="price-close" aria-label="Закрыть">×</button></div>
   <form id="price-form" data-endpoint="">
@@ -174,6 +175,7 @@
     <button class="primary" type="submit">Получить прайс</button><p id="price-status" role="status"></p>
   </form>
 </dialog>
+<!-- /shared:price-dialog -->
 <!-- shared:header-dialogs -->
 <dialog id="info" aria-labelledby="info-heading"><div class="dialog-heading"><h2 id="info-heading"></h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p id="info-body"></p><button class="primary" data-quote>Подготовить запрос</button></dialog>
 <dialog id="quote" aria-labelledby="quote-heading"><div class="dialog-heading"><h2 id="quote-heading">Запрос на опт</h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p>Подготовьте текст запроса для отдела продаж.</p><label for="draft">Текст запроса</label><textarea id="draft" rows="5"></textarea><button class="primary" id="copy-draft">Скопировать запрос</button><p id="status" role="status"></p></dialog>

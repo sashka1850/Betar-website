@@ -14,7 +14,7 @@ def render_block(page, name, content):
 for filename in ("index.html", "catalog.html"):
     path = ROOT / "dist" / filename
     page = path.read_text(encoding="utf-8")
-    for name in ("header", "header-icons", "header-dialogs"):
+    for name in ("header", "header-icons", "header-dialogs", "price-dialog"):
         content = (ROOT / "templates" / f"{name}.html").read_text(encoding="utf-8")
         content = content.replace("{{contacts}}", "#contacts" if filename == "index.html" else "./index.html#contacts")
         page = render_block(page, name, content)
