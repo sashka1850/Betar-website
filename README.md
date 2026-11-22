@@ -5,3 +5,5 @@
 Публикация выполняется автоматически через GitHub Pages из каталога `dist`.
 
 Сайт: https://sashka1850.github.io/Betar-website/
+
+Шапка главной и каталога хранится в `templates/`. После правок шаблонов обновите обе страницы командой `python3 scripts/build.py`. GitHub Actions запускает её перед публикацией.

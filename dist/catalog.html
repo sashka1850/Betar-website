@@ -1,6 +1,38 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ассортимент счётчиков · БЕТАР</title><style>
-*{box-sizing:border-box}body{margin:0;color:#102b50;font:16px/1.5 Arial,sans-serif;background:#fafbfc}header,main{max-width:1200px;margin:auto;padding:20px clamp(18px,5vw,72px)}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ccd5de}header img{display:block;width:144px}a{color:#164c87;text-underline-offset:4px}h1{font-size:clamp(42px,7vw,92px);letter-spacing:-.055em;line-height:1.02;margin:36px 0}nav{display:flex;flex-wrap:wrap;gap:12px 24px}section{margin:60px 0}h2{font-size:clamp(34px,5vw,62px);letter-spacing:-.05em;line-height:1.1;border-bottom:3px solid #ed750a;padding-bottom:16px;margin:0}h3{font-size:22px;margin:30px 0 4px}article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,.8fr);gap:24px;padding:20px 0;border-bottom:1px solid #cdd6df}article h4,article p{margin:0}article h4{font-size:19px}article a{display:block;margin-bottom:6px}h2,h3{scroll-margin-top:16px}main{padding-bottom:30vh}@media(max-width:720px){article{grid-template-columns:1fr;gap:8px}section{margin:40px 0}header img{width:115px}}
-</style></head><body><header><a href="./index.html"><img src="./assets/betar.webp" alt="БЕТАР"></a><a href="./index.html">На главную</a></header><main><h1>Ассортимент</h1><nav aria-label="Разделы каталога"><a href="#gas">Газ</a><a href="#water">Вода</a><a href="#electric">Электроэнергия</a></nav><section aria-labelledby="gas"><h2 id="gas">Газ</h2>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ассортимент счётчиков · БЕТАР</title><link rel="stylesheet" href="./studio.css"><script type="module" src="./catalog.js"></script><style>
+*{box-sizing:border-box}body{margin:0;color:#102b50;font:16px/1.5 Arial,sans-serif;background:#fafbfc}main{max-width:1200px;margin:auto;padding:20px clamp(18px,5vw,72px)}main a{color:#164c87;text-underline-offset:4px}h1{font-size:clamp(42px,7vw,92px);letter-spacing:-.055em;line-height:1.02;margin:36px 0}main nav{display:flex;flex-wrap:wrap;gap:12px 24px}section{margin:60px 0}main h2{font-size:clamp(34px,5vw,62px);letter-spacing:-.05em;line-height:1.1;border-bottom:3px solid #ed750a;padding-bottom:16px;margin:0}h3{font-size:22px;margin:30px 0 4px}article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,.8fr);gap:24px;padding:20px 0;border-bottom:1px solid #cdd6df}article h4,article p{margin:0}article h4{font-size:19px}article a{display:block;margin-bottom:6px}main h2,main h3{scroll-margin-top:16px}main{padding-bottom:30vh}@media(max-width:720px){article{grid-template-columns:1fr;gap:8px}section{margin:40px 0}}
+</style></head><body><!-- shared:header-icons -->
+<svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<symbol id="phone" viewBox="0 0 24 24"><path d="M6.3 2.6 9 6.8c.4.7.4 1.1-.2 1.7l-1.5 1.6c1.5 3 3.8 5.1 6.7 6.6l1.6-1.6c.6-.5 1.1-.5 1.7-.2l4 2.6c.7.5.8 1.1.4 1.8-.9 1.8-2.3 2.8-4.5 2.4C10.2 20.4 3.5 13.4 2.3 6.7 1.9 4.4 3 3 4.7 2.3c.6-.3 1.2-.2 1.6.3Z"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="1.6"/><path d="m3 6 9 7 9-7"/></symbol>
+<symbol id="menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+<symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+</svg>
+<!-- /shared:header-icons -->
+<!-- shared:header -->
+<header class="masthead">
+  <a class="brand" href="./index.html#overview" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
+  <nav class="desktop-nav" aria-label="Основное меню">
+    <a class="navlink" href="./catalog.html">Каталог</a>
+    <button class="navlink" data-info="terms">Условия</button>
+    <button class="navlink" data-info="about">О компании</button>
+    <a class="navlink" href="./index.html#contacts">Контакты</a>
+  </nav>
+  <div class="header-actions">
+    <div class="phone"><svg aria-hidden="true"><use href="#phone"/></svg><span><a href="tel:+79656074034">+7 (965) 607-40-34</a><a href="tel:+79600317134">+7 (960) 031-71-34</a></span></div>
+    <button class="header-quote" data-quote><svg aria-hidden="true"><use href="#mail"/></svg>Запрос на опт</button>
+    <button class="burger" data-menu="mobile-list" aria-controls="mobile-list" aria-expanded="false" aria-label="Меню"><svg aria-hidden="true"><use href="#menu"/></svg></button>
+  </div>
+  <nav class="popover mobile-pop" id="mobile-list" aria-label="Навигация" hidden>
+    <a href="./catalog.html">Каталог</a>
+    <button data-info="terms">Условия</button>
+    <button data-info="about">О компании</button>
+    <a href="./index.html#contacts">Контакты</a>
+    <a href="tel:+79656074034">+7 (965) 607-40-34</a>
+    <a href="tel:+79600317134">+7 (960) 031-71-34</a>
+  </nav>
+</header>
+<!-- /shared:header -->
+<main><h1>Ассортимент</h1><nav aria-label="Разделы каталога"><a href="#gas">Газ</a><a href="#water">Вода</a><a href="#electric">Электроэнергия</a></nav><section aria-labelledby="gas"><h2 id="gas">Газ</h2>
 <article><h4>СГБМ</h4><p>Струйно-акустический. Вертикальный или горизонтальный монтаж. Дистанционный съём — опция.</p><div><a href="https://www.betar.ru/catalog/schetchiki-gaza/cgbm/">Характеристики производителя</a></div></article>
 <article><h4>СГБМ · U-образный тройник</h4><p>U-образный тройник под присоединение мембранного счётчика. Температурная коррекция. Межповерочный интервал 12 лет.</p><div><a href="https://www.betar.ru/catalog/schetchiki-gaza/sgbm-s-u-obraznym-troynikom/">Характеристики производителя</a></div></article>
 <article><h4>СГБМ · RS-485</h4><p>Проводной RS-485. Тройник с одной или двумя накидными гайками. Межповерочный интервал 12 лет.</p><div><a href="https://www.betar.ru/catalog/schetchiki-gaza/sgbm-s-interfeysom-rs-485/">Характеристики производителя</a></div></article>
@@ -26,4 +58,8 @@
 <section aria-labelledby="electric"><h2 id="electric">Электроэнергия</h2>
 <article><h4>ЭСО-211</h4><p>Активная энергия, однофазная двухпроводная сеть 50 Гц. Многотарифный учёт и проводной RS-485.</p><div><a href="https://www.betar.ru/catalog/elektroschetchiki/2-tarif/">Характеристики производителя</a></div></article>
 <article><h4>МУР 1001.5 SmartOn EE1</h4><p>230 В, 50 Гц, 4 тарифа. Ток 5/60 или 10/100 А. Сменные модули связи, включая RS-485, GSM, LoRa и Wi-Fi.</p><div><a href="https://www.betar.ru/catalog/elektroschetchiki/mnogotarifnye-pod-pp-rf-890-s-razlichnymi-interfeysami/">Характеристики производителя</a></div></article>
-</section></main></body></html>
+</section></main><!-- shared:header-dialogs -->
+<dialog id="info" aria-labelledby="info-heading"><div class="dialog-heading"><h2 id="info-heading"></h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p id="info-body"></p><button class="primary" data-quote>Подготовить запрос</button></dialog>
+<dialog id="quote" aria-labelledby="quote-heading"><div class="dialog-heading"><h2 id="quote-heading">Запрос на опт</h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p>Подготовьте текст запроса для отдела продаж.</p><label for="draft">Текст запроса</label><textarea id="draft" rows="5"></textarea><button class="primary" id="copy-draft">Скопировать запрос</button><p id="status" role="status"></p></dialog>
+<!-- /shared:header-dialogs -->
+</body></html>
