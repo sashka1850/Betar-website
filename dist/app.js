@@ -1,6 +1,6 @@
 import {createStudio} from "./scene.js";
 import {initHeader} from "./header.js";
-import "./contacts.js";
+import "./about.js";
 import "./price.js";
 
 const content = {

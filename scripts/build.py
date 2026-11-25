@@ -16,6 +16,6 @@ for filename in ("index.html", "catalog.html"):
     page = path.read_text(encoding="utf-8")
     for name in ("header", "header-icons", "header-dialogs", "price-dialog"):
         content = (ROOT / "templates" / f"{name}.html").read_text(encoding="utf-8")
-        content = content.replace("{{contacts}}", "#contacts" if filename == "index.html" else "./index.html#contacts")
+        content = content.replace("{{home}}", "" if filename == "index.html" else "./index.html")
         page = render_block(page, name, content)
     path.write_text(page, encoding="utf-8")

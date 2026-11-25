@@ -1,0 +1,37 @@
+.about{min-height:calc(100svh - var(--masthead-height));position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:center;background:radial-gradient(ellipse at 11% 30%,#fff 4%,transparent 55%),linear-gradient(145deg,#f7faff,#dce9f7 64%,#c5d8f0)}
+.about-copy{position:relative;z-index:1;align-self:center}
+.about-copy p{margin:0 0 18px;font-size:clamp(16px,2vw,25px);color:#536987}
+.about-copy h1{margin:0 0 32px;font-size:clamp(42px,6.2vw,105px);letter-spacing:-.064em;line-height:.98;text-wrap:balance}
+.about-stage{position:absolute;z-index:0;inset:0;pointer-events:none}
+.about-stage canvas{position:absolute;inset:0;width:100%;height:100%}
+
+.about-copy{width:min(59%,830px);padding:clamp(35px,8vh,96px) 4vw 116px}
+.about-copy h1{font-size:clamp(42px,5.3vw,87px);line-height:1.01;margin:0 0 24px;text-wrap:initial}
+.about-copy .description{max-width:580px;color:#223b5b;font-size:clamp(17px,1.55vw,23px);line-height:1.45;margin:0}
+.about-copy .benefits-title{font-size:clamp(34px,4.05vw,65px)}
+.benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:700px;list-style:none;margin:0;padding:0}
+.benefits li{padding:12px;border:1px solid #d9e5f1;border-radius:12px;background:#fffffff0;box-shadow:0 8px 24px #244b7b12}
+.benefits strong{display:block;font-size:clamp(13px,1.15vw,17px);margin:0 0 6px}
+.about-copy .benefits p{font-size:clamp(12px,.98vw,15px);line-height:1.35;margin:0;color:#294461}
+.about .benefit-icon{width:28px;height:28px;margin-bottom:6px;display:block;fill:none;stroke:#e76600;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.about-controls{position:absolute;z-index:2;left:4vw;bottom:clamp(20px,5vh,56px);display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.about-controls button{cursor:pointer;border-radius:7px;padding:11px 14px;border:1px solid #aabbd2;color:#10254b;background:#fffffff0}
+.about-controls .primary{border:0;border-radius:7px;background:#f16a00;color:white;font-weight:700;padding:13px 18px;cursor:pointer}
+.about-controls nav{display:flex;align-items:center;gap:4px}
+.about-controls .step,.about-controls .carousel-arrow{display:grid;place-items:center;padding:0;touch-action:manipulation}
+.about-controls .step{width:21px;height:28px;background:none;border:0}
+.about-controls .step::before{content:"";width:7px;height:7px;border-radius:50%;background:#9cacbf}
+.about-controls .step[aria-pressed=true]::before{background:#f16a00;width:9px;height:9px}
+.about-controls .carousel-arrow{width:32px;height:32px;border-radius:50%}
+.carousel-arrow svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+
+@media(max-width:720px){
+ .about{min-height:max(600px,calc(100svh - var(--masthead-height)));align-items:start}
+ .about-copy{width:100%;padding:32px 6% 95px;align-self:start}
+.about-copy h1{font-size:clamp(34px,8.6vw,52px);margin-bottom:16px}
+ .about-copy .description{max-width:36ch}
+ .about-controls{left:6%;gap:8px}
+ .benefits{gap:6px}
+ .benefits li{padding:7px 6px}
+ .about .benefit-icon{width:22px;height:22px}
+}

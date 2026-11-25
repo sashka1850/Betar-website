@@ -20,11 +20,11 @@
 <!-- /shared:header-icons -->
 <!-- shared:header -->
 <header class="masthead">
-  <a class="brand" href="./index.html#overview" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
+  <a class="brand" href="./index.html#about" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
   <nav class="desktop-nav" aria-label="Основное меню">
+    <a class="navlink" href="./index.html#about">О нас</a>
+    <a class="navlink" href="./index.html#products">Продукция</a>
     <a class="navlink" href="./catalog.html">Каталог</a>
-    <button class="navlink" data-info="terms">Условия</button>
-    <button class="navlink" data-info="about">О компании</button>
     <a class="navlink" href="./index.html#contacts">Контакты</a>
   </nav>
   <div class="header-actions">
@@ -33,9 +33,9 @@
     <button class="burger" data-menu="mobile-list" aria-controls="mobile-list" aria-expanded="false" aria-label="Меню"><svg aria-hidden="true"><use href="#menu"/></svg></button>
   </div>
   <nav class="popover mobile-pop" id="mobile-list" aria-label="Навигация" hidden>
+    <a href="./index.html#about">О нас</a>
+    <a href="./index.html#products">Продукция</a>
     <a href="./catalog.html">Каталог</a>
-    <button data-info="terms">Условия</button>
-    <button data-info="about">О компании</button>
     <a href="./index.html#contacts">Контакты</a>
     <a href="tel:+79656074034">+7 (965) 607-40-34</a>
     <a href="tel:+79600317134">+7 (960) 031-71-34</a>
@@ -69,7 +69,6 @@
 <article><div class="catalog-item"><span class="catalog-thumb"><img src="./assets/electric.webp" alt="" width="64" height="56" loading="lazy"></span><h4>ЭСО-211</h4></div><p>Активная энергия, однофазная двухпроводная сеть 50 Гц. Многотарифный учёт и проводной RS-485.</p><div><a href="https://www.betar.ru/catalog/elektroschetchiki/2-tarif/">Характеристики производителя</a></div></article>
 <article><div class="catalog-item"><span class="catalog-thumb"><img src="./assets/electric.webp" alt="" width="64" height="56" loading="lazy"></span><h4>МУР 1001.5 SmartOn EE1</h4></div><p>230 В, 50 Гц, 4 тарифа. Ток 5/60 или 10/100 А. Сменные модули связи, включая RS-485, GSM, LoRa и Wi-Fi.</p><div><a href="https://www.betar.ru/catalog/elektroschetchiki/mnogotarifnye-pod-pp-rf-890-s-razlichnymi-interfeysami/">Характеристики производителя</a></div></article>
 </section></main><!-- shared:header-dialogs -->
-<dialog id="info" aria-labelledby="info-heading"><div class="dialog-heading"><h2 id="info-heading"></h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p id="info-body"></p><button class="primary" data-quote>Подготовить запрос</button></dialog>
 <dialog id="quote" aria-labelledby="quote-heading"><div class="dialog-heading"><h2 id="quote-heading">Запрос на опт</h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p>Подготовьте текст запроса для отдела продаж.</p><label for="draft">Текст запроса</label><textarea id="draft" rows="5"></textarea><button class="primary" id="copy-draft">Скопировать запрос</button><p id="status" role="status"></p></dialog>
 <!-- /shared:header-dialogs -->
 <!-- shared:price-dialog -->

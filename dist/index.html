@@ -9,6 +9,7 @@
   <link rel="preload" as="image" href="./assets/studio.webp">
   <link rel="stylesheet" href="./studio.css">
   <link rel="stylesheet" href="./contacts.css">
+  <link rel="stylesheet" href="./about.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
@@ -29,11 +30,11 @@
 <!-- /shared:header-icons -->
 <!-- shared:header -->
 <header class="masthead">
-  <a class="brand" href="./index.html#overview" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
+  <a class="brand" href="#about" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
   <nav class="desktop-nav" aria-label="Основное меню">
+    <a class="navlink" href="#about">О нас</a>
+    <a class="navlink" href="#products">Продукция</a>
     <a class="navlink" href="./catalog.html">Каталог</a>
-    <button class="navlink" data-info="terms">Условия</button>
-    <button class="navlink" data-info="about">О компании</button>
     <a class="navlink" href="#contacts">Контакты</a>
   </nav>
   <div class="header-actions">
@@ -42,17 +43,30 @@
     <button class="burger" data-menu="mobile-list" aria-controls="mobile-list" aria-expanded="false" aria-label="Меню"><svg aria-hidden="true"><use href="#menu"/></svg></button>
   </div>
   <nav class="popover mobile-pop" id="mobile-list" aria-label="Навигация" hidden>
+    <a href="#about">О нас</a>
+    <a href="#products">Продукция</a>
     <a href="./catalog.html">Каталог</a>
-    <button data-info="terms">Условия</button>
-    <button data-info="about">О компании</button>
     <a href="#contacts">Контакты</a>
     <a href="tel:+79656074034">+7 (965) 607-40-34</a>
     <a href="tel:+79600317134">+7 (960) 031-71-34</a>
   </nav>
 </header>
 <!-- /shared:header -->
-<div class="page">
- <main class="hero" id="overview" aria-labelledby="title">
+<main>
+<section class="about" id="about" aria-label="О нас">
+<div class="about-stage" aria-hidden="true"><canvas id="globe"></canvas><canvas id="routes"></canvas></div><div class="about-copy">
+ <div class="slide"><h1 class="slide-heading">Более 20 лет с БЕТАР</h1><p class="description slide-body">ООО «БЕТАР-ПЕНЗА» — официальный представитель производителя ООО ПКФ «Бетар». Более 20 лет поставляем счётчики электричества, воды и газа.</p></div>
+ <div class="slide" hidden><h1 class="slide-heading">Доставка по всей России</h1><p class="description slide-body">Доставляем за свой счёт партии любого объёма. Условия каждой поставки согласуем индивидуально.</p></div>
+ <div class="slide" hidden><h1 class="slide-heading benefits-title">Свежая поверка, быстрая доставка и гарантия</h1><ul class="benefits slide-body"><li><svg class="benefit-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18m-13 5 2 2 4-4"/></svg><strong>Поверка</strong><p>Поставляем счётчики со свежими датами поверки.</p></li><li><svg class="benefit-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5h12v12H3m12-9h3l3 4v5h-2m-4 0h-4M1 8h6m-5 4h5"/><circle cx="8" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><strong>Доставка</strong><p>Приборы со склада доставляем от 3 дней.</p></li><li><svg class="benefit-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v5c0 5 3 8 8 10 5-2 8-5 8-10V6l-8-3Z"/><path d="m8 12 3 3 5-6"/></svg><strong>Гарантия</strong><p>В течение гарантийного срока меняем неисправный счётчик на новый без экспертизы.</p></li></ul></div>
+</div>
+<div class="about-controls"><button class="primary" type="button" data-price-open>Получить прайс</button><nav aria-label="Слайды о компании">
+ <button class="carousel-arrow" id="prev-slide" type="button" aria-label="Предыдущий слайд"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m10 3-5 5 5 5"/></svg></button>
+ <button class="step" type="button" aria-label="Опыт" aria-pressed="true"></button><button class="step" type="button" aria-label="Доставка" aria-pressed="false"></button><button class="step" type="button" aria-label="Преимущества" aria-pressed="false"></button>
+ <button class="carousel-arrow" id="next-slide" type="button" aria-label="Следующий слайд"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button>
+ </nav></div>
+</section>
+<section class="page" id="products" aria-label="Продукция">
+ <div class="hero" id="overview" aria-labelledby="title">
   <div id="scene" class="scene" aria-hidden="true">
    <img id="plate" alt="" src="./assets/studio.webp" width="1753" height="697" draggable="false">
    <div class="actor" id="actor-electric"><span></span><img src="./assets/electric.webp" alt=""><canvas></canvas></div>
@@ -60,104 +74,33 @@
    <div class="actor" id="actor-gas"><span></span><img src="./assets/gas.webp" alt=""><canvas></canvas></div>
   </div>
   <div class="copy-zone"><div class="copy-inner">
-    <div id="copy" aria-live="polite" aria-atomic="true"><h1 id="title">Счётчики БЕТАР<br>оптом</h1><p id="description">Бытовые и промышленные<br>приборы учёта для организаций</p></div>
+    <div id="copy" aria-live="polite" aria-atomic="true"><h2 id="title">Счётчики БЕТАР<br>оптом</h2><p id="description">Бытовые и промышленные<br>приборы учёта для организаций</p></div>
     <div class="actions"><button class="primary" id="price-open" data-price-open>Получить прайс <svg><use href="#arrow"/></svg></button><a class="primary range-link" id="range-link" href="./catalog.html" hidden>Посмотреть ассортимент <svg><use href="#arrow"/></svg></a><button class="back" id="back" data-all hidden>← Все счётчики</button></div>
   </div></div>
- </main>
+ </div>
  <nav class="categories" aria-label="Выбор типа счётчика">
   <button class="category" data-type="water" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#water"/></svg><span>Вода</span><svg class="end"><use href="#arrow"/></svg></button>
   <button class="category" data-type="gas" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#gas"/></svg><span>Газ</span><svg class="end"><use href="#arrow"/></svg></button>
   <button class="category" data-type="electric" aria-label="Электроэнергия" aria-pressed="false" aria-controls="overview"><svg class="category-icon"><use href="#electric"/></svg><span>Электро&shy;энергия</span><svg class="end"><use href="#arrow"/></svg></button>
  </nav>
-</div>
+</section>
 <section class="contacts" id="contacts" aria-labelledby="contacts-title" tabindex="-1">
- <div class="contacts-map">
-  <h2 id="contacts-title">Контакты</h2>
-  <div class="map-points" role="group" aria-label="Города на карте">
-   <img src="./assets/contacts-map.webp" width="1400" height="940" alt="" loading="lazy">
-    <div class="map-marker" style="--x:41.50%;--y:29.45%;--label-x:42%;--label-y:20%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="41.50" y1="29.45" x2="42" y2="20" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-0" aria-label="Москва на карте" aria-pressed="true">Москва</button>
-    </div>
-    <div class="map-marker" style="--x:37.82%;--y:76.36%;--label-x:22%;--label-y:80%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="37.82" y1="76.36" x2="22" y2="80" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-1" aria-label="Белгород на карте" aria-pressed="false">Белгород</button>
-    </div>
-    <div class="map-marker" style="--x:29.86%;--y:52.36%;--label-x:15%;--label-y:51%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="29.86" y1="52.36" x2="15" y2="51" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-2" aria-label="Брянск на карте" aria-pressed="false">Брянск</button>
-    </div>
-    <div class="map-marker" style="--x:47.14%;--y:66.64%;--label-x:48%;--label-y:80%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="47.14" y1="66.64" x2="48" y2="80" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-3" aria-label="Воронеж на карте" aria-pressed="false">Воронеж</button>
-    </div>
-    <div class="map-marker" style="--x:36.64%;--y:40.82%;--label-x:22%;--label-y:36%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="36.64" y1="40.82" x2="22" y2="36" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-4" aria-label="Калуга на карте" aria-pressed="false">Калуга</button>
-    </div>
-    <div class="map-marker" style="--x:36.39%;--y:66.09%;--label-x:21%;--label-y:64%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="36.39" y1="66.09" x2="21" y2="64" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-5" aria-label="Курск на карте" aria-pressed="false">Курск</button>
-    </div>
-    <div class="map-marker" style="--x:48.57%;--y:58.09%;--label-x:47%;--label-y:50%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="48.57" y1="58.09" x2="47" y2="50" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-6" aria-label="Липецк на карте" aria-pressed="false">Липецк</button>
-    </div>
-    <div class="map-marker" style="--x:67.86%;--y:52.73%;--label-x:84%;--label-y:57%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="67.86" y1="52.73" x2="84" y2="57" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-7" aria-label="Пенза на карте" aria-pressed="false">Пенза</button>
-    </div>
-    <div class="map-marker" style="--x:68.50%;--y:43.73%;--label-x:81%;--label-y:44%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="68.50" y1="43.73" x2="81" y2="44" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-8" aria-label="Саранск на карте" aria-pressed="false">Саранск</button>
-    </div>
-    <div class="map-marker" style="--x:71.54%;--y:67.91%;--label-x:81%;--label-y:80%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="71.54" y1="67.91" x2="81" y2="80" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-9" aria-label="Саратов на карте" aria-pressed="false">Саратов</button>
-    </div>
-    <div class="map-marker" style="--x:55.18%;--y:57.09%;--label-x:61%;--label-y:69%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="55.18" y1="57.09" x2="61" y2="69" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-10" aria-label="Тамбов на карте" aria-pressed="false">Тамбов</button>
-    </div>
-    <div class="map-marker" style="--x:41.50%;--y:43.73%;--label-x:54%;--label-y:38%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="41.50" y1="43.73" x2="54" y2="38" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-11" aria-label="Тула на карте" aria-pressed="false">Тула</button>
-    </div>
-    <div class="map-marker" style="--x:87.96%;--y:33.00%;--label-x:74%;--label-y:32%">
-     <svg class="pin-leader" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="87.96" y1="33.00" x2="74" y2="32" vector-effect="non-scaling-stroke"/></svg>
-     <span class="pin-dot" aria-hidden="true"></span>
-     <button type="button" class="map-pin pin-label" data-city="city-12" aria-label="Чистополь на карте" aria-pressed="false">Чистополь</button>
-    </div>
-  </div>
-  <p class="map-city" aria-live="polite">Москва</p>
- </div>
  <div class="contacts-directory">
+  <h2 id="contacts-title">Контакты</h2>
   <ul class="city-list" aria-label="Телефоны по городам">
-    <li class="city-row" id="city-0" data-active><button type="button" class="city-select" data-city="city-0" aria-pressed="true">Москва</button><span><a href="tel:+79600317134">+7 (960) 031-71-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-11"><button type="button" class="city-select" data-city="city-11" aria-pressed="false">Тула</button><span><a href="tel:+79050213340">+7 (905) 021-33-40</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-1"><button type="button" class="city-select" data-city="city-1" aria-pressed="false">Белгород</button><span><a href="tel:+79050226933">+7 (905) 022-69-33</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-2"><button type="button" class="city-select" data-city="city-2" aria-pressed="false">Брянск</button><span><a href="tel:+79050213340">+7 (905) 021-33-40</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-3"><button type="button" class="city-select" data-city="city-3" aria-pressed="false">Воронеж</button><span><a href="tel:+79656074034">+7 (965) 607-40-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-4"><button type="button" class="city-select" data-city="city-4" aria-pressed="false">Калуга</button><span><a href="tel:+79600317134">+7 (960) 031-71-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-5"><button type="button" class="city-select" data-city="city-5" aria-pressed="false">Курск</button><span><a href="tel:+79045263014">+7 (904) 526-30-14</a> <a href="tel:+74712360470">+7 (4712) 36-04-70</a></span></li>
-    <li class="city-row" id="city-6"><button type="button" class="city-select" data-city="city-6" aria-pressed="false">Липецк</button><span><a href="tel:+79656198957">+7 (965) 619-89-57</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-7"><button type="button" class="city-select" data-city="city-7" aria-pressed="false">Пенза</button><span><a href="tel:+79050226933">+7 (905) 022-69-33</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-8"><button type="button" class="city-select" data-city="city-8" aria-pressed="false">Саранск</button><span><a href="tel:+79050213340">+7 (905) 021-33-40</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-9"><button type="button" class="city-select" data-city="city-9" aria-pressed="false">Саратов</button><span><a href="tel:+79656074034">+7 (965) 607-40-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
-    <li class="city-row" id="city-10"><button type="button" class="city-select" data-city="city-10" aria-pressed="false">Тамбов</button><span><a href="tel:+79656196805">+7 (965) 619-68-05</a> <a href="tel:+79107566988">+7 (910) 756-69-88</a></span></li>
-    <li class="city-row" id="city-12"><button type="button" class="city-select" data-city="city-12" aria-pressed="false">Чистополь</button><span><a href="tel:+79600317134">+7 (960) 031-71-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Москва</strong><span><a href="tel:+79600317134">+7 (960) 031-71-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Тула</strong><span><a href="tel:+79050213340">+7 (905) 021-33-40</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Белгород</strong><span><a href="tel:+79050226933">+7 (905) 022-69-33</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Брянск</strong><span><a href="tel:+79050213340">+7 (905) 021-33-40</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Воронеж</strong><span><a href="tel:+79656074034">+7 (965) 607-40-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Калуга</strong><span><a href="tel:+79600317134">+7 (960) 031-71-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Курск</strong><span><a href="tel:+79045263014">+7 (904) 526-30-14</a> <a href="tel:+74712360470">+7 (4712) 36-04-70</a></span></li>
+    <li class="city-row"><strong>Липецк</strong><span><a href="tel:+79656198957">+7 (965) 619-89-57</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Пенза</strong><span><a href="tel:+79050226933">+7 (905) 022-69-33</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Саранск</strong><span><a href="tel:+79050213340">+7 (905) 021-33-40</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Саратов</strong><span><a href="tel:+79656074034">+7 (965) 607-40-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
+    <li class="city-row"><strong>Тамбов</strong><span><a href="tel:+79656196805">+7 (965) 619-68-05</a> <a href="tel:+79107566988">+7 (910) 756-69-88</a></span></li>
+    <li class="city-row"><strong>Чистополь</strong><span><a href="tel:+79600317134">+7 (960) 031-71-34</a> <a href="tel:+78434244849">+7 (84342) 4-48-49</a></span></li>
   </ul>
   <div class="company-details">
    <h3>Реквизиты</h3>
@@ -166,6 +109,7 @@
   </div>
  </div>
 </section>
+</main>
 <!-- shared:price-dialog -->
 <dialog id="price-dialog" aria-labelledby="price-title">
   <div class="dialog-heading"><h2 id="price-title">Получить оптовый прайс</h2><button type="button" id="price-close" aria-label="Закрыть">×</button></div>
@@ -177,7 +121,6 @@
 </dialog>
 <!-- /shared:price-dialog -->
 <!-- shared:header-dialogs -->
-<dialog id="info" aria-labelledby="info-heading"><div class="dialog-heading"><h2 id="info-heading"></h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p id="info-body"></p><button class="primary" data-quote>Подготовить запрос</button></dialog>
 <dialog id="quote" aria-labelledby="quote-heading"><div class="dialog-heading"><h2 id="quote-heading">Запрос на опт</h2><button data-close aria-label="Закрыть"><svg><use href="#close"/></svg></button></div><p>Подготовьте текст запроса для отдела продаж.</p><label for="draft">Текст запроса</label><textarea id="draft" rows="5"></textarea><button class="primary" id="copy-draft">Скопировать запрос</button><p id="status" role="status"></p></dialog>
 <!-- /shared:header-dialogs -->
 <script>window.addEventListener('DOMContentLoaded',()=>{if(new URLSearchParams(location.search).get('category')==='water')document.querySelector('.category[data-type="water"]').click()})</script></body>

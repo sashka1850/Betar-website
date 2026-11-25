@@ -1,10 +1,10 @@
 <header class="masthead">
-  <a class="brand" href="./index.html#overview" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
+  <a class="brand" href="{{home}}#about" aria-label="БЕТАР — главная"><img src="./assets/betar.webp" width="171" height="39" alt="БЕТАР"><span>Оптовые поставки</span></a>
   <nav class="desktop-nav" aria-label="Основное меню">
+    <a class="navlink" href="{{home}}#about">О нас</a>
+    <a class="navlink" href="{{home}}#products">Продукция</a>
     <a class="navlink" href="./catalog.html">Каталог</a>
-    <button class="navlink" data-info="terms">Условия</button>
-    <button class="navlink" data-info="about">О компании</button>
-    <a class="navlink" href="{{contacts}}">Контакты</a>
+    <a class="navlink" href="{{home}}#contacts">Контакты</a>
   </nav>
   <div class="header-actions">
     <div class="phone"><svg aria-hidden="true"><use href="#phone"/></svg><span><a href="tel:+79656074034">+7 (965) 607-40-34</a><a href="tel:+79600317134">+7 (960) 031-71-34</a></span></div>
@@ -12,10 +12,10 @@
     <button class="burger" data-menu="mobile-list" aria-controls="mobile-list" aria-expanded="false" aria-label="Меню"><svg aria-hidden="true"><use href="#menu"/></svg></button>
   </div>
   <nav class="popover mobile-pop" id="mobile-list" aria-label="Навигация" hidden>
+    <a href="{{home}}#about">О нас</a>
+    <a href="{{home}}#products">Продукция</a>
     <a href="./catalog.html">Каталог</a>
-    <button data-info="terms">Условия</button>
-    <button data-info="about">О компании</button>
-    <a href="{{contacts}}">Контакты</a>
+    <a href="{{home}}#contacts">Контакты</a>
     <a href="tel:+79656074034">+7 (965) 607-40-34</a>
     <a href="tel:+79600317134">+7 (960) 031-71-34</a>
   </nav>
