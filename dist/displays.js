@@ -47,19 +47,46 @@ function lcd(ctx,quad,number){
     }
   }
 }
-function wheels(ctx,[tl,tr,,bl],reading){
-  const {digits,roll,split}=reading;const count=digits.length,cell=19,row=32;
+// Map the flat reading to all four LCD/frame corners. With this homography,
+// the projected baseline follows the window in either viewing direction.
+function projectWindow([tl,tr,br,bl]){
+  const dx1=tr[0]-br[0],dx2=bl[0]-br[0];
+  const dy1=tr[1]-br[1],dy2=bl[1]-br[1];
+  const dx=tl[0]-tr[0]+br[0]-bl[0],dy=tl[1]-tr[1]+br[1]-bl[1];
+  const determinant=dx1*dy2-dx2*dy1;
+  const g=(dx*dy2-dx2*dy)/determinant,h=(dx1*dy-dx*dy1)/determinant;
+  return (u,v)=>{
+    const scale=1+g*u+h*v;
+    return [
+      (tl[0]+u*((1+g)*tr[0]-tl[0])+v*((1+h)*bl[0]-tl[0]))/scale,
+      (tl[1]+u*((1+g)*tr[1]-tl[1])+v*((1+h)*bl[1]-tl[1]))/scale
+    ];
+  };
+}
+function wheels(ctx,quad,reading){
+  const {digits,roll,split}=reading,count=digits.length,cell=19,row=32;
+  const project=projectWindow(quad);
   ctx.save();
-  ctx.transform((tr[0]-tl[0])/(cell*count),(tr[1]-tl[1])/(cell*count),
-    (bl[0]-tl[0])/row,(bl[1]-tl[1])/row,tl[0],tl[1]);
-  ctx.beginPath();ctx.rect(0,0,cell*count,row);ctx.clip();
-  ctx.font='bold 32px "Arial Narrow", Arial, sans-serif';ctx.textAlign="center";ctx.textBaseline="middle";
+  ctx.beginPath();
+  ctx.moveTo(...quad[0]);
+  for(const corner of quad.slice(1))ctx.lineTo(...corner);
+  ctx.closePath();
+  ctx.clip();
+  ctx.font='bold 32px "Arial Narrow", Arial, sans-serif';
+  ctx.textAlign="center";ctx.textBaseline="middle";
   for(let i=0;i<count;i++){
+    // Evaluate the horizontal and vertical directions at this digit.
+    const u=(i+.5)/count;
+    const [lx,ly]=project(i/count,.5),[rx,ry]=project((i+1)/count,.5);
+    const [tx,ty]=project(u,0),[bx,by]=project(u,1);
+    const [cx,cy]=project(u,.5);
     const shift=!/[^9]/.test(digits.slice(i+1))?roll*row:0;
-    const x=(i+.5)*cell;
+    ctx.save();
+    ctx.transform((rx-lx)/cell,(ry-ly)/cell,(bx-tx)/row,(by-ty)/row,cx,cy);
     ctx.fillStyle=i<split?"#171a1c":"#b52c25";
-    ctx.fillText(digits[i],x,row*.55-shift,cell*.78);
-    if(shift>0)ctx.fillText(String((Number(digits[i])+1)%10),x,row*1.55-shift,cell*.78);
+    ctx.fillText(digits[i],0,row*.05-shift,cell*.78);
+    if(shift>0)ctx.fillText(String((Number(digits[i])+1)%10),0,row*1.05-shift,cell*.78);
+    ctx.restore();
   }
   ctx.restore();
 }
