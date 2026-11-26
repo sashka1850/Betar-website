@@ -35,3 +35,33 @@
  .benefits li{padding:7px 6px}
  .about .benefit-icon{width:22px;height:22px}
 }
+
+
+.about .slide-cards{margin-top:18px}
+.about .slide-cards:has(li:only-child){grid-template-columns:minmax(0,260px)}
+.about .benefit-icon{overflow:visible}
+.about .benefit-icon.icon--route{width:min(100%,95px)}
+.draw{stroke-dasharray:1;stroke-dashoffset:0;animation:draw-line var(--duration,.35s) ease-out var(--delay,0s) both}
+@keyframes draw-line{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.appear{animation:appear .25s ease-out var(--delay,0s) both}
+@keyframes appear{from{opacity:0}to{opacity:1}}
+.truck{animation:ride .82s ease-in-out infinite}
+@keyframes ride{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.speed{animation:pass .75s linear infinite;animation-delay:var(--delay)}
+@keyframes pass{0%{opacity:0;transform:translateX(3px)}32%{opacity:1}100%{opacity:0;transform:translateX(-3px)}}
+.box-face{fill:#fff;stroke-width:1.45}
+.box-top{fill:#fff8ef}
+.calendar-number{font:700 10px Arial,sans-serif;text-anchor:middle;fill:#db5d00;stroke:none;font-variant-numeric:tabular-nums}
+.calendar-page{transform-origin:14px 6px;animation:page-drop 2s infinite}
+.calendar-sheet{stroke-opacity:0;animation:sheet-outline 2s linear infinite}
+@keyframes sheet-outline{0%,74%{stroke-opacity:0}81%,100%{stroke-opacity:1}}
+@keyframes page-drop{
+ 0%,72%{transform:none;opacity:1}
+ 77%{transform:translateY(1px) rotate(-5deg);opacity:1;animation-timing-function:cubic-bezier(.5,.08,.77,.55)}
+ 99%,100%{transform:translate(3px,15px) rotate(-15deg);opacity:0}
+}
+.about .draw,.about .appear,.about .truck,.about .speed,
+.about .calendar-page,.about .calendar-sheet{animation-play-state:paused}
+.about[data-motion] .draw,.about[data-motion] .appear,.about[data-motion] .truck,.about[data-motion] .speed,
+.about[data-motion] .calendar-page,.about[data-motion] .calendar-sheet{animation-play-state:running}
+@media(prefers-reduced-motion:reduce){.about .benefit-icon *{animation:none!important;stroke-dashoffset:0}}

@@ -1,5 +1,8 @@
+import {setupAboutIcons} from "./about-icons.js";
+
 const textureUrl="./assets/about-globe.webp";
 const section=document.querySelector('#about');
+const renderIcons=setupAboutIcons(section);
 const globe=document.querySelector('#globe'),routes=document.querySelector('#routes');
 const gl=globe.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:false});
 const ctx=routes.getContext('2d');
@@ -115,7 +118,7 @@ const fade=value=>{
  return p*p*(3-2*p);
 };
 const wrap=index=>(index+steps.length)%steps.length;
-let activeSlide=0, slideOffset=0, selectedLap=-2, manualSlide=0;
+let activeSlide=0, slideOffset=0, selectedLap=-2, manualSlide=0, slideStarted=0;
 function updateSlide(time,lap){
  const isManualLap=lap===selectedLap;
  const isFollowingLap=lap===selectedLap+1;
@@ -123,7 +126,9 @@ function updateSlide(time,lap){
  if(index!==activeSlide){
   slideElements.forEach(({element},i)=>{element.hidden=i!==index;steps[i].setAttribute('aria-pressed',String(i===index));});
   activeSlide=index;
+  slideStarted=elapsed;
  }
+ if(index===1)renderIcons(reduced.matches?0:elapsed-slideStarted);
  const slide=slideElements[index];
  const fadeOut=isManualLap||reduced.matches?1:fade(1-(time-slow)/.55);
  const skipIntro=isManualLap||isFollowingLap||reduced.matches||elapsed<.8;
@@ -192,7 +197,10 @@ function tick(now){
 }
 function syncMotion(){
  cancelAnimationFrame(animation);previous=0;
- if(ready&&inView&&!document.hidden&&!reduced.matches)animation=requestAnimationFrame(tick);
+ const moving=inView&&!document.hidden&&!reduced.matches;
+ section.toggleAttribute('data-motion',moving);
+ section.querySelector('[data-next-date]').setAttribute('visibility',reduced.matches?'hidden':'visible');
+ if(ready&&moving)animation=requestAnimationFrame(tick);
  render();
 }
 new IntersectionObserver(([entry])=>{
