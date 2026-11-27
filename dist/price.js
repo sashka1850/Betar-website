@@ -1,7 +1,10 @@
+import {createMailFlight} from "./mail-flight.js";
+
 const priceDialog = document.querySelector("#price-dialog");
 const priceForm = document.querySelector("#price-form");
 const priceStatus = document.querySelector("#price-status");
 const done = document.querySelector("#price-done");
+const flight = createMailFlight(priceDialog.querySelector(".mail-flight"));
 const submit = priceForm.querySelector("[type=submit]");
 const endpoint = priceForm.dataset.endpoint || (location.hostname === "127.0.0.1" ? "/price" : "");
 const isAppsScript = /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(endpoint);
@@ -16,6 +19,7 @@ for (const opener of document.querySelectorAll("[data-price-open]")) {
 document.querySelector("#price-close").onclick = () => priceDialog.close();
 done.onclick = () => priceDialog.close();
 priceDialog.addEventListener("close", () => {
+  flight.reset();
   if (sent) {
     sent = false;
     priceForm.hidden = false;
@@ -92,8 +96,10 @@ priceForm.addEventListener("submit", async event => {
   sending = true;
   submit.disabled = true;
   priceStatus.textContent = "Отправляем прайс…";
+  flight.start();
   try {
     const result = await requestPrice(fields);
+    if (!result.ok) flight.reset();
     if (result.code === "rate_limit") {
       priceStatus.textContent = "Прайс недавно запрашивали или превышен лимит отправки. Попробуйте позже.";
       return;
@@ -107,9 +113,11 @@ priceForm.addEventListener("submit", async event => {
     priceStatus.textContent = `Прайс отправлен на ${fields.get("email").trim()}. Проверьте папку «Спам».`;
     priceForm.reset();
     priceForm.hidden = true;
+    flight.succeed();
     done.hidden = false;
     done.focus();
   } catch {
+    flight.reset();
     priceStatus.textContent = "Не удалось подтвердить отправку. Попробуйте позже.";
   } finally {
     sending = false;

@@ -108,3 +108,9 @@ dialog .primary{margin-top:15px;min-height:44px;font-size:16px;padding:0 17px;bo
 .phone a {display:block; font-size:clamp(12px,1.05vw,20px); font-weight:650; line-height:1.35;}
 .popover a {display:block; font-size:15px; padding:11px 13px; border-radius:6px;}
 .popover a:hover,.popover a:focus-visible {background:#f0f3fa;}
+
+.mail-flight{margin:12px 0 0;border:1px solid #e7eef7;border-radius:10px;background:#f3f7fc}
+.mail-flight svg:not(.symbols){width:100%;height:auto;stroke:#e96500;stroke-width:2.6}
+.mail-flight .glyph,.mail-flight #envelope{fill:#fff7ed}
+.mail-flight #trail{stroke-width:2;stroke-dasharray:2 6;opacity:.72}
+.mail-flight #people[data-arrived] .arrival{fill:#ffd9b8}
