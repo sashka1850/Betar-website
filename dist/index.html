@@ -153,11 +153,14 @@
 <!-- shared:price-dialog -->
 <dialog id="price-dialog" aria-labelledby="price-title">
   <div class="dialog-heading"><h2 id="price-title">Получить оптовый прайс</h2><button type="button" id="price-close" aria-label="Закрыть">×</button></div>
-  <form id="price-form" data-endpoint="">
+  <form id="price-form" data-endpoint="https://script.google.com/macros/s/AKfycbwor6CdpydbUJsB78bTnwQuY1j5D9VyRWQWha1eDrmGeXYgUEIaO7fs21XstsTAToIZHw/exec">
+    <p>Пришлём вам прайс в течение двух минут на указанную почту.</p>
     <label for="price-email">Email</label><input id="price-email" name="email" autocomplete="email" type="email" maxlength="254" required>
-    <label for="price-city">Город</label><input id="price-city" name="city" autocomplete="address-level2" maxlength="100" required>
-    <button class="primary" type="submit">Получить прайс</button><p id="price-status" role="status"></p>
+    <label for="price-region">Регион (необязательно)</label><input id="price-region" name="region" autocomplete="address-level1" maxlength="100">
+    <button class="primary" type="submit">Получить прайс</button>
   </form>
+  <p id="price-status" role="status"></p>
+  <button class="primary" id="price-done" type="button" hidden>Закрыть</button>
 </dialog>
 <!-- /shared:price-dialog -->
 <!-- shared:header-dialogs -->
